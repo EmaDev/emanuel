@@ -1,6 +1,5 @@
 import {getFirestore, doc, getDoc } from "firebase/firestore";
 import { app } from "./config";
-import { error } from "console";
 import { User } from "../../types/User";
 const db = getFirestore(app);
 
@@ -17,7 +16,7 @@ export const getUserByName = async (userName: string) => {
                 data: userData
             }
         }else{
-            throw error("El usuario no existe")
+            throw new Error("El usuario no existe")
         }
     } catch (error) {
         return {

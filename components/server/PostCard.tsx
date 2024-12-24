@@ -6,13 +6,14 @@ import Image from 'next/image';
 import { MdCamera } from "react-icons/md";
 import { Post } from '../../types/Post';
 import { convertTimestampToDate } from '../../services/helpers';
+import { ModalImage } from '../client/molecules/ModalImage';
 
 
 interface Props {
     post: Post
 }
 
-export const PostCard = ({post}:Props) => {
+export const PostCard = ({ post }: Props) => {
 
     //const screenWidth = (window.innerWidth < 768) ? "mobile" : "desktop";
     const screenWidth = "mobile";
@@ -23,11 +24,9 @@ export const PostCard = ({post}:Props) => {
             key={post.title}>
             <CardBody className="">
                 <div className={`${screenWidth === "mobile" ? "h-[420px]" : "h-[600px]"}`}>
-                    <Image
+                    <ModalImage
+                        alt={post.title}
                         src={post.image}
-                        alt=""
-                        height={500} width={500}
-                        className='w-full h-full object-cover rounded-xl'
                     />
                 </div>
             </CardBody>

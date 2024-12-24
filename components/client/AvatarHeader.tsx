@@ -1,7 +1,7 @@
 "use client"
 import { Modal, ModalBody, ModalContent, useDisclosure } from '@nextui-org/modal';
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 interface Props {
     src: string;
@@ -10,7 +10,7 @@ interface Props {
 
 export const AvatarHeader = ({ alt, src }: Props) => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
+   
     return (
         <div>
             <div onClick={onOpen}
@@ -21,11 +21,13 @@ export const AvatarHeader = ({ alt, src }: Props) => {
                     alt={`Avatar of ${alt}`}
                     width={400} height={400}
                     className='w-full h-full object-cover'
+                    onLoad={(e) => console.log(e.target)}
                 />
             </div>
             <Modal isOpen={isOpen} onOpenChange={onOpenChange}
                 placement='center'
                 className='mx-6 bg-transparent shadow-none'
+                backdrop='blur'
             >
                 <ModalContent>
                     {(onClose) => (
