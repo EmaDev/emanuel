@@ -16,9 +16,9 @@ export const AlbumsList = ({ albums }: Props) => {
 
     const handleNavigate = (album: string) => {
         if(album === "Favoritos"){
-            return router.push(`/blog/emanuel`)
+            return router.push(`/blog`)
         }
-        return router.push(`/blog/emanuel?album=${album}`)
+        return router.push(`/blog?album=${album}`)
     }
     return (
         <div className='mb-4 w-full flex overflow-auto gap-4'>
