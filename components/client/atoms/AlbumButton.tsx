@@ -12,7 +12,7 @@ interface Props {
 export const AlbumButton = ({ active, title, navigate }: Props) => {
 
   return (
-    <Button className={`${active ? "bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg" : ""}`}
+    <Button className={`p-1 text-xs ${active ? "bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg" : ""}`}
       onPress={() => navigate(title)}
     >
       {title.charAt(0).toUpperCase() + title.slice(1)}

@@ -7,6 +7,7 @@ import { MdCamera } from "react-icons/md";
 import { Post } from '../../types/Post';
 import { convertTimestampToDate } from '../../services/helpers';
 import { ModalImage } from '../client/molecules/ModalImage';
+import { LazyMap } from '../client/LazyMap';
 
 
 interface Props {
@@ -46,8 +47,9 @@ export const PostCard = ({ post }: Props) => {
                 </div>
                 {
                     post.map &&
-                    <div className='w-full my-2 rounded-lg bg-gray-700 h-32 relative overflow-hidden'>
-                        <MapComponenet lng={post.location.lng} lat={post.location.lat} />
+                    <div className='w-full my-2 rounded-lg  h-32 relative overflow-hidden'>
+                        {/*<MapComponenet lng={post.location.lng} lat={post.location.lat} />*/}
+                        <LazyMap lng={post.location.lng} lat={post.location.lat}/>
                     </div>
                 }
             </CardFooter>
